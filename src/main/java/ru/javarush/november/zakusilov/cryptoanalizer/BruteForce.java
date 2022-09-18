@@ -1,10 +1,9 @@
 package ru.javarush.november.zakusilov.cryptoanalizer;
 
-import java.nio.CharBuffer;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Force {
+public class BruteForce {
 
     public static void main(String[] args) {
         HashMap<Character, Integer> hashMap = new HashMap<>();
@@ -13,7 +12,7 @@ public class Force {
         for (int i = 0; i < charactersSet.length; i++) {
             int count = 0;
             for (int j = 0; j < text.length; j++) {
-                if (charactersSet[i] == text[j]){
+                if (charactersSet[i] == text[j]) {
                     count++;
                 }
             }

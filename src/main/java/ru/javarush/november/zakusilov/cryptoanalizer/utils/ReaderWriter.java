@@ -1,4 +1,6 @@
-package ru.javarush.november.zakusilov.cryptoanalizer;
+package ru.javarush.november.zakusilov.cryptoanalizer.utils;
+
+import ru.javarush.november.zakusilov.cryptoanalizer.view.ConsoleView;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -24,6 +26,8 @@ public class ReaderWriter {
                     CaesarCipher.toEncrypt(textPart, key);
                 } else if (mode.equals(ConsoleView.MODE_2)) {
                     CaesarCipher.toDecrypt(textPart, key);
+                } else if (mode.equals(ConsoleView.MODE_3)) {
+                    System.out.println("Криптоанализ методом brute force находится в разработке");
                 }
                 bufferedWriter.write(textPart);
                 bufferedWriter.newLine();

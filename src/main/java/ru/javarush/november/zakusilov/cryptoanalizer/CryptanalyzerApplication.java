@@ -1,5 +1,7 @@
 package ru.javarush.november.zakusilov.cryptoanalizer;
 
+import ru.javarush.november.zakusilov.cryptoanalizer.view.ConsoleView;
+
 import java.util.Scanner;
 
 public class CryptanalyzerApplication {

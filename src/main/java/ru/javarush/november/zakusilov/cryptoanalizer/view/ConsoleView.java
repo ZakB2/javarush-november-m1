@@ -1,4 +1,6 @@
-package ru.javarush.november.zakusilov.cryptoanalizer;
+package ru.javarush.november.zakusilov.cryptoanalizer.view;
+
+import ru.javarush.november.zakusilov.cryptoanalizer.utils.ReaderWriter;
 
 import java.util.Scanner;
 

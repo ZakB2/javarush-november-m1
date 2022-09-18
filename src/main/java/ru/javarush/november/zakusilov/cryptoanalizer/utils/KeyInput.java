@@ -1,4 +1,4 @@
-package ru.javarush.november.zakusilov.cryptoanalizer;
+package ru.javarush.november.zakusilov.cryptoanalizer.utils;
 
 import java.util.Scanner;
 

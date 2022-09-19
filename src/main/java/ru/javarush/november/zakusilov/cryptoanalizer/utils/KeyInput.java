@@ -3,6 +3,10 @@ package ru.javarush.november.zakusilov.cryptoanalizer.utils;
 import java.util.Scanner;
 
 public class KeyInput {
+
+    private KeyInput() {
+    }
+
     private static final String ERROR_TEXT = "Ошибка, введено неверное значаение ключа.";
 
     public static int keyTest(Scanner scanner, int charactersNumber) {

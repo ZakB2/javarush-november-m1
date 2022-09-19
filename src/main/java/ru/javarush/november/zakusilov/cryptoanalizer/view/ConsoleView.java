@@ -1,10 +1,15 @@
 package ru.javarush.november.zakusilov.cryptoanalizer.view;
 
+import ru.javarush.november.zakusilov.cryptoanalizer.utils.BruteForce;
 import ru.javarush.november.zakusilov.cryptoanalizer.utils.ReaderWriter;
 
 import java.util.Scanner;
 
 public class ConsoleView {
+
+    private ConsoleView() {
+    }
+
     private static final String DELIMITER = "*******************************************************";
     private static final String ENCRYPTION = "1 Шифрование";
     private static final String DECRYPTION = "2 Расшифровка";
@@ -24,14 +29,15 @@ public class ConsoleView {
             switch (mode) {
                 case MODE_1:
                     ReaderWriter.getText(scanner, MODE_1);
-                    System.out.println("Шифрование выполнено." + "\n" + DELIMITER);
+                    System.out.println(DELIMITER);
                     break;
                 case MODE_2:
                     ReaderWriter.getText(scanner, MODE_2);
-                    System.out.println("Расшифровка выполнена." + "\n" + DELIMITER);
+                    System.out.println(DELIMITER);
                     break;
                 case MODE_3:
-                    System.out.println("Криптоанализ методом brute force выполнен." + "\n" + DELIMITER);
+                    BruteForce.hackKey(scanner, MODE_3);
+                    System.out.println(DELIMITER);
                     break;
                 case MODE_4:
                     isWorking = false;

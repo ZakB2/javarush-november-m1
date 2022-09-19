@@ -6,6 +6,9 @@ import java.io.IOException;
 
 public class CaesarCipher {
 
+    private CaesarCipher() {
+    }
+
     static char[] charactersSet = getCharactersSet();
     static int charactersNumber = charactersSet.length;
 

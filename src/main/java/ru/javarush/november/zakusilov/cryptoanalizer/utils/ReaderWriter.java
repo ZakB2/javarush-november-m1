@@ -6,11 +6,18 @@ import java.io.*;
 import java.nio.file.Path;
 import java.util.Scanner;
 
+import static java.nio.file.Files.isRegularFile;
+
 public class ReaderWriter {
+
+    private ReaderWriter() {
+    }
+
     public static void getText(Scanner scanner, String mode) {
 
         System.out.println("Введите путь доступа к исходному файлу:");
-        Path inputFilePath = Path.of(scanner.nextLine());
+        Path inputFilePath = testPath(scanner);
+        if (inputFilePath == null) return;
         Path outputFilePath = getOutputFileNameAndPath(inputFilePath, mode);
 
         int charactersNumber = CaesarCipher.getCharactersSet().length;
@@ -27,18 +34,34 @@ public class ReaderWriter {
                 } else if (mode.equals(ConsoleView.MODE_2)) {
                     CaesarCipher.toDecrypt(textPart, key);
                 } else if (mode.equals(ConsoleView.MODE_3)) {
-                    System.out.println("Криптоанализ методом brute force находится в разработке");
+                    CaesarCipher.toDecrypt(textPart, key);
                 }
                 bufferedWriter.write(textPart);
                 bufferedWriter.newLine();
                 bufferedWriter.flush();
+            }
+            if (mode.equals(ConsoleView.MODE_1)) {
+                System.out.println("Шифрование выполнено.");
+            } else if (mode.equals(ConsoleView.MODE_2)) {
+                System.out.println("Расшифровка выполнена.");
+            } else if (mode.equals(ConsoleView.MODE_3)) {
+                System.out.println("Взлом выполнен.");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static Path getOutputFileNameAndPath(Path inputFilePath, String mode) {
+    public static Path testPath(Scanner scanner) {
+        Path inputFilePath = Path.of(scanner.nextLine());
+        if (!isRegularFile(inputFilePath)) {
+            System.err.println("Ошибка, проверьте путь доступа к исходному файлу. Программа возвращается в главное меню");
+            return null;
+        }
+        return inputFilePath;
+    }
+
+    public static Path getOutputFileNameAndPath(Path inputFilePath, String mode) {
         String inputFileName = inputFilePath.getFileName().toString();
         String outputFileName = "";
         int dotIndex = inputFileName.lastIndexOf(".");
@@ -46,6 +69,8 @@ public class ReaderWriter {
             outputFileName = inputFileName.substring(0, dotIndex) + "_encrypted" + inputFileName.substring(dotIndex);
         } else if (mode.equals(ConsoleView.MODE_2)) {
             outputFileName = inputFileName.substring(0, dotIndex) + "_decrypted" + inputFileName.substring(dotIndex);
+        } else if (mode.equals(ConsoleView.MODE_3)) {
+            outputFileName = inputFileName.substring(0, dotIndex) + "_hacked" + inputFileName.substring(dotIndex);
         }
         return inputFilePath.getParent().resolve(Path.of(outputFileName));
     }

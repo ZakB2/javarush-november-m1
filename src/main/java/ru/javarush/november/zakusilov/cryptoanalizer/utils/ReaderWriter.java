@@ -33,8 +33,6 @@ public class ReaderWriter {
                     CaesarCipher.toEncrypt(textPart, key);
                 } else if (mode.equals(ConsoleView.MODE_2)) {
                     CaesarCipher.toDecrypt(textPart, key);
-                } else if (mode.equals(ConsoleView.MODE_3)) {
-                    CaesarCipher.toDecrypt(textPart, key);
                 }
                 bufferedWriter.write(textPart);
                 bufferedWriter.newLine();
@@ -44,8 +42,6 @@ public class ReaderWriter {
                 System.out.println("Шифрование выполнено.");
             } else if (mode.equals(ConsoleView.MODE_2)) {
                 System.out.println("Расшифровка выполнена.");
-            } else if (mode.equals(ConsoleView.MODE_3)) {
-                System.out.println("Взлом выполнен.");
             }
         } catch (IOException e) {
             e.printStackTrace();

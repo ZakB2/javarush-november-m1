@@ -96,5 +96,6 @@ public class BruteForce {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("Взлом выполнен.");
     }
 }

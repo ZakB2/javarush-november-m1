@@ -15,7 +15,7 @@ public class BruteForce {
 
     public static void hackKey(Scanner scanner, String mode) {
 
-        System.out.println("Введите путь доступа к исходному файлу:");
+        ReaderWriter.printLine("Введите путь доступа к исходному файлу:");
         Path inputFilePath = ReaderWriter.testPath(scanner);
         if (inputFilePath == null) return;
         Path outputFilePath = getOutputFileNameAndPath(inputFilePath, mode);
@@ -96,6 +96,6 @@ public class BruteForce {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Взлом выполнен.");
+        ReaderWriter.printLine("Взлом выполнен.");
     }
 }

@@ -23,28 +23,28 @@ public class ConsoleView {
     public static void menuOutput(Scanner scanner) {
         boolean isWorking = true;
         while (isWorking) {
-            System.out.println("Выберите режим работы криптоанализатора, нажав соответствующую цифру от 1 до 4:");
-            System.out.println(ENCRYPTION + "\n" + DECRYPTION + "\n" + BRUTE_FORCE + "\n" + EXIT);
+            ReaderWriter.printLine("Выберите режим работы криптоанализатора, нажав соответствующую цифру от 1 до 4:");
+            ReaderWriter.printLine(ENCRYPTION + "\n" + DECRYPTION + "\n" + BRUTE_FORCE + "\n" + EXIT);
             String mode = scanner.nextLine();
             switch (mode) {
                 case MODE_1:
                     ReaderWriter.getText(scanner, MODE_1);
-                    System.out.println(DELIMITER);
+                    ReaderWriter.printLine(DELIMITER);
                     break;
                 case MODE_2:
                     ReaderWriter.getText(scanner, MODE_2);
-                    System.out.println(DELIMITER);
+                    ReaderWriter.printLine(DELIMITER);
                     break;
                 case MODE_3:
                     BruteForce.hackKey(scanner, MODE_3);
-                    System.out.println(DELIMITER);
+                    ReaderWriter.printLine(DELIMITER);
                     break;
                 case MODE_4:
                     isWorking = false;
-                    System.out.println("Работа криптоанализатора завершена.");
+                    ReaderWriter.printLine("Работа криптоанализатора завершена.");
                     break;
                 default:
-                    System.err.println("Введено неверное значение. Повторите ввод.");
+                    ReaderWriter.printErrorLine("Введено неверное значение. Повторите ввод.");
             }
         }
     }

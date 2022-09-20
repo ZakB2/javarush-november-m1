@@ -15,7 +15,7 @@ public class ReaderWriter {
 
     public static void getText(Scanner scanner, String mode) {
 
-        System.out.println("Введите путь доступа к исходному файлу:");
+        printLine("Введите путь доступа к исходному файлу:");
         Path inputFilePath = testPath(scanner);
         if (inputFilePath == null) return;
         Path outputFilePath = getOutputFileNameAndPath(inputFilePath, mode);
@@ -39,19 +39,27 @@ public class ReaderWriter {
                 bufferedWriter.flush();
             }
             if (mode.equals(ConsoleView.MODE_1)) {
-                System.out.println("Шифрование выполнено.");
+                printLine("Шифрование выполнено.");
             } else if (mode.equals(ConsoleView.MODE_2)) {
-                System.out.println("Расшифровка выполнена.");
+                printLine("Расшифровка выполнена.");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    public static void printLine(String string) {
+        System.out.println(string);
+    }
+
+    public static void printErrorLine(String string) {
+        System.err.println(string);
+    }
+
     public static Path testPath(Scanner scanner) {
         Path inputFilePath = Path.of(scanner.nextLine());
         if (!isRegularFile(inputFilePath)) {
-            System.err.println("Ошибка, проверьте путь доступа к исходному файлу. Программа возвращается в главное меню");
+            printErrorLine("Ошибка, проверьте путь доступа к исходному файлу. Программа возвращается в главное меню");
             return null;
         }
         return inputFilePath;

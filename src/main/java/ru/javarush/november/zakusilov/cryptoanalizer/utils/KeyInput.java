@@ -12,24 +12,23 @@ public class KeyInput {
     public static int keyTest(Scanner scanner, int charactersNumber) {
         int key = 0;
         while (key < 1 || key >= charactersNumber) {
-            System.out.println("Введите ключ шифрования. Ключ должен быть целым положительным числом.");
+            ReaderWriter.printLine("Введите ключ шифрования. Ключ должен быть целым положительным числом.");
             try {
                 key = Integer.parseInt(scanner.nextLine());
                 if (key < 1) {
-                    System.err.println(ERROR_TEXT + "\b, ключ не может быть меньше 1.");
+                    ReaderWriter.printErrorLine(ERROR_TEXT + "\b, ключ не может быть меньше 1.");
                 }
                 if (key >= charactersNumber) {
                     if (key % charactersNumber != 0) {
                         key = key % charactersNumber;
                     } else {
-                        System.err.println(ERROR_TEXT + "\b, данное значение не применимо.");
+                        ReaderWriter.printErrorLine(ERROR_TEXT + "\b, данное значение не применимо.");
                     }
                 }
             } catch (NumberFormatException e) {
-                System.err.println(ERROR_TEXT + "\b, ключ не может быть вещественным числом или текстом.");
+                ReaderWriter.printErrorLine(ERROR_TEXT + "\b, ключ не может быть вещественным числом или текстом.");
             }
         }
         return key;
     }
 }
-

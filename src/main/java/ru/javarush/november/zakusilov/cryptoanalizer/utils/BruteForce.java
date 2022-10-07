@@ -27,8 +27,8 @@ public class BruteForce {
             charactersNumberMap.put(charactersSet[i], initialCharactersNumber);
         }
 
-        try (FileReader fileReader = new FileReader(inputFilePath.toString())) {
-            BufferedReader buffer = new BufferedReader(fileReader);
+        try (FileReader fileReader = new FileReader(inputFilePath.toString());
+            BufferedReader buffer = new BufferedReader(fileReader)) {
             while (buffer.ready()) {
                 char[] textPart = buffer.readLine().toCharArray();
                 for (int i = 0; i < textPart.length; i++) {

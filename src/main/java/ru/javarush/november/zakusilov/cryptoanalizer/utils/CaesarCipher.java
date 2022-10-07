@@ -48,7 +48,7 @@ public class CaesarCipher {
 
     public static char[] getCharactersSet() {
         String stringFromCharactersSet = "";
-        try (FileReader reader = new FileReader("src/main/resources/!Russian alphabet character set.txt")) {
+        try (FileReader reader = new FileReader("src/main/resources/Russian alphabet character set.txt")) {
             BufferedReader buffer = new BufferedReader(reader);
             while (reader.ready()) {
                 stringFromCharactersSet = buffer.readLine();

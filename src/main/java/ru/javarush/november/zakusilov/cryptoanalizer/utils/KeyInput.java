@@ -7,7 +7,7 @@ public class KeyInput {
     private KeyInput() {
     }
 
-    private static final String ERROR_TEXT = "Ошибка, введено неверное значаение ключа.";
+    private static final String ERROR_TEXT = "Ошибка, введено неверное значение ключа.";
 
     public static int keyTest(Scanner scanner, int charactersNumber) {
         int key = 0;

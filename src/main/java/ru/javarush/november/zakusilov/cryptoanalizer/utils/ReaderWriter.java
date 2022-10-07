@@ -24,9 +24,9 @@ public class ReaderWriter {
         int key = KeyInput.keyTest(scanner, charactersNumber);
 
         try (FileReader fileReader = new FileReader(inputFilePath.toString());
-             FileWriter fileWriter = new FileWriter(outputFilePath.toString())) {
+             FileWriter fileWriter = new FileWriter(outputFilePath.toString());
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter)) {
             while (bufferedReader.ready()) {
                 char[] textPart = bufferedReader.readLine().toCharArray();
                 if (mode.equals(ConsoleView.MODE_1)) {
